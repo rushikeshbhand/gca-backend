@@ -14,14 +14,15 @@ app.use(cors({
 
 app.use(bodyParser.json());
 
+// Contact form route
+app.use('/api/contact', contactRoutes);
+
+// Default route 
 app.use('/', (req, res, next) => {
   res.json({
     message: 'Welcome to the GCA Backend API!'
   })
 })
-
-// Contact form route
-app.use('/api/contact', contactRoutes);
 
 const PORT = process.env.PORT;
 app.listen(PORT, () => {
